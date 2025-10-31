@@ -1,0 +1,280 @@
+/* ========================================= */
+/* ARQUIVO: style.css                        */
+/* SISTEMA DE DESIGN COMPLETO (Entrega II)   */
+/* ========================================= */
+
+:root {
+    /* --------------------------------- */
+    /* 1. PALETA DE CORES (Mínimo 8 cores) */
+    /* --------------------------------- */
+    --cor-primaria: #007bff;        /* AZUL (Confiança - Botões, Títulos) */
+    --cor-secundaria: #008080;      /* VERDE-MARINHO (Segurança - Destaques) */
+    --cor-sucesso: #28a745;         /* Verde para Sucesso */
+    --cor-erro: #dc3545;            /* Vermelho para Erro */
+    --cor-alerta: #ffc107;          /* Amarelo para Avisos */
+
+    --cor-neutra-clara: #f8f9fa;    /* Cinza muito claro (Fundo do corpo) */
+    --cor-neutra-escura: #343a40;   /* Cinza escuro (Rodapé, textos) */
+    --cor-texto: #212529;           /* Cor do texto */
+    --cor-borda: #dee2e6;           /* Cinza para linhas e divisões */
+
+
+    /* --------------------------------- */
+    /* 2. TIPOGRAFIA (Mínimo 5 tamanhos) */
+    /* --------------------------------- */
+    --fonte-h1: 3rem;               /* Título Gigante */
+    --fonte-h2: 2.5rem;             /* Título Grande */
+    --fonte-h3: 2rem;               /* Título Médio-Grande */
+    --fonte-padrao: 1rem;           /* Texto Normal que a gente lê (16px) */
+    --fonte-pequena: 0.8rem;        /* Texto Pequeno (Legendas) */
+
+
+    /* --------------------------------- */
+    /* 3. ESPAÇAMENTO MODULAR (6 Tamanhos) */
+    /* --------------------------------- */
+    --espaco-1: 8px;
+    --espaco-2: 16px;
+    --espaco-3: 24px;
+    --espaco-4: 32px;
+    --espaco-5: 48px;
+    --espaco-6: 64px;
+}
+
+/* ========================================= */
+/* REGRAS BÁSICAS E LAYOUT PADRÃO            */
+/* ========================================= */
+
+/* 1. Reset básico e Configuração do BODY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-neutra-clara); 
+    font-family: Arial, sans-serif;
+    font-size: var(--fonte-padrao); 
+    color: var(--cor-texto);         
+}
+
+/* 2. Layout Principal com CSS Grid */
+.container {
+    display: grid;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 var(--espaco-2); 
+    grid-template-columns: 1fr; 
+}
+
+/* 3. Estilizando Menu (HEADER) e Links com Flexbox */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espaco-3) 0;
+    border-bottom: 1px solid var(--cor-borda); 
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* ATIVA O FLEXBOX para colocar os links lado a lado */
+    gap: var(--espaco-4); 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: bold;
+    padding: var(--espaco-1);
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+/* 4. Estilizando Títulos e Textos */
+main {
+    padding-top: var(--espaco-5); 
+}
+
+h1 {
+    font-size: var(--fonte-h1);
+    color: var(--cor-primaria); 
+    margin-bottom: var(--espaco-4);
+    text-align: center;
+}
+
+h2 {
+    font-size: var(--fonte-h2);
+    color: var(--cor-secundaria); 
+    margin-top: var(--espaco-5);
+    margin-bottom: var(--espaco-3);
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: var(--espaco-1);
+}
+
+h3 {
+    font-size: var(--fonte-h3);
+    margin-top: var(--espaco-4);
+    margin-bottom: var(--espaco-2);
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: var(--espaco-3);
+}
+
+figure {
+    text-align: center;
+    margin-bottom: var(--espaco-5);
+}
+
+figure img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: var(--espaco-1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+    font-size: var(--fonte-pequena);
+    color: #6c757d;
+    margin-top: var(--espaco-1);
+}
+
+
+/* 5. Estilizando o Rodapé (FOOTER) */
+footer {
+    background-color: var(--cor-neutra-escura);
+    color: white;
+    padding: var(--espaco-4) var(--espaco-2);
+    margin-top: var(--espaco-5);
+}
+
+footer section {
+    /* Usando Flexbox para alinhar o conteúdo no footer se precisar */
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--espaco-2);
+    margin-bottom: var(--espaco-3);
+}
+
+
+/* ========================================= */
+/* 6. RESPONSIVIDADE (A Regra Mágica - MÁXIMO 768px)*/
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* Regra para o Menu no Celular: */
+    nav ul {
+        flex-direction: column; 
+        gap: var(--espaco-1); 
+    }
+
+    /* Regra para garantir que o menu ocupe a largura total */
+    header {
+        flex-direction: column;
+        gap: var(--espaco-2);
+        text-align: center;
+    }
+
+    /* Regra para a Seção de Contato no Rodapé (para ficar organizado no celular) */
+    footer section {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ARQUIVO: style.css (ADICIONE NO FINAL) */
+
+/* ========================================= */
+/* 7. ESTILIZAÇÃO DO FORMULÁRIO (cadastro.html) */
+/* ========================================= */
+.formulario-voluntario {
+    max-width: 600px; /* Limita a largura do formulário para melhor leitura */
+    margin: var(--espaco-5) auto; /* Centraliza o formulário */
+    padding: var(--espaco-4);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--espaco-1);
+    background-color: white;
+}
+
+.form-group {
+    margin-bottom: var(--espaco-3);
+}
+
+.form-group label {
+    display: block; /* Garante que o rótulo ocupe a linha toda */
+    font-weight: bold;
+    margin-bottom: var(--espaco-1);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"], /* Adicionei o type date aqui */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--espaco-2);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--espaco-1);
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+/* Estilo específico para o campo de texto grande */
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+/* Estilo para a caixa de seleção */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+}
+
+/* Estilo do botão de envio */
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: var(--espaco-3);
+    background-color: var(--cor-sucesso); /* Pinta o botão de verde */
+    color: white;
+    border: none;
+    border-radius: var(--espaco-1);
+    font-size: var(--fonte-padrao);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #1e7e34; /* Um tom mais escuro de verde ao passar o mouse */
+}
+
+
+/* ========================================= */
+/* 8. ESTILIZAÇÃO DOS PROJETOS (projetos.html) */
+/* ========================================= */
+.projeto-card {
+    border: 1px solid var(--cor-borda);
+    padding: var(--espaco-3);
+    margin-bottom: var(--espaco-4);
+    border-left: 5px solid var(--cor-secundaria); /* Linha verde-marinho na lateral */
+    border-radius: var(--espaco-1);
+    background-color: white;
+}
+
+.projeto-card h3 {
+    color: var(--cor-primaria);
+    margin-top: 0;
+}
+
+/* Regras de Responsividade para Formulário (Abaixo de 768px) */
+@media screen and (max-width: 768px) {
+    .formulario-voluntario {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
